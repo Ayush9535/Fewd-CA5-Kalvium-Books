@@ -1,5 +1,4 @@
 import React from 'react'
-import {Link} from "react-router-dom"
 import Navbar from '../Components/Navbar'
 import axios from 'axios'
 import { FaStar } from "react-icons/fa";
@@ -14,7 +13,6 @@ const Home = () => {
     try{
       let data = await axios.get("https://reactnd-books-api.udacity.com/books" ,{headers : { 'Authorization': 'whatever-you-want' }})
       setData(data.data.books)
-      // console.log(data.data.books[0].title , searchVal)
     }catch (error) {
       console.log(error)
     }
@@ -28,7 +26,7 @@ const Home = () => {
   return (
     <div>
         <Navbar setsearchVal={setsearchVal} />
-        <div className='grid grid-cols-5 w-[90%] m-auto my-10 gap-y-10'>
+        <div className='grid grid-cols-5 w-[80%] m-auto my-20 gap-y-10'>
           {filteredData.map((ele , i)=>{
             return (
               <div className='m-auto my-0 cursor-pointer' key={i}>

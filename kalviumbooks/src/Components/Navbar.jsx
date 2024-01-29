@@ -9,7 +9,7 @@ const Navbar = ({setsearchVal}) => {
   }
 
   return (
-    <div className="flex justify-between items-center w-[100%] py-5 pl-5 pr-[5vw]">
+    <div className="flex justify-between items-center w-[100%] py-5 pl-5 pr-[5vw] mt-2">
       <Link to={'/'}>
       <div className="flex items-center">
         <img src={logo} className="w-[3vw] mr-2"/>
@@ -22,7 +22,6 @@ const Navbar = ({setsearchVal}) => {
       </div>
 
       <Link to={"/register"}><button className="py-2 border-2 border-black text-red-600 px-[4vw]">Register</button></Link>
-
     </div>
   )
 }
