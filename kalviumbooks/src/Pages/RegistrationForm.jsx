@@ -2,7 +2,7 @@ import React  from 'react'
 import Navbar from '../Components/Navbar'
 import {Link , useNavigate} from "react-router-dom"
 import logo from "../assets/Logo21.png"
-
+import { BiShow } from "react-icons/bi";
 
 const RegistrationForm = () => {
 
@@ -24,9 +24,19 @@ const RegistrationForm = () => {
 
   const [inputVals , setInputVals] = React.useState(inputValues)
   const [errors , seterros] = React.useState(errorMessages)
+  const pass = React.useRef()
+  const confirmPass = React.useRef()
+
+  let handletoggle = () =>{
+    pass.current.type == "text" ? pass.current.type = "password" : pass.current.type = "text"
+  }
+
+  let handleconfirmPass = () =>{
+    confirmPass.current.type == "text" ? confirmPass.current.type = "password" : confirmPass.current.type = "text"
+  }
 
   let handleChange = (e) =>{
-    setInputVals((prev) => ({...inputVals , [e.target.name] : e.target.value}))
+    setInputVals((prev) => ({...prev , [e.target.name] : e.target.value}))
     console.log(inputVals)
   }
 
@@ -108,12 +118,12 @@ const RegistrationForm = () => {
             </div>
             
             <div className='mt-6'>
-              <input onChange={handleChange} type="password" className='w-[25vw] p-2 text-l border-2 border-black rounded' placeholder='Enter Password' name="password"/>
+              <input onChange={handleChange} type="password" ref={pass} className='w-[25vw] p-2 text-l border-2 border-black rounded' placeholder='Enter Password' name="password"/><BiShow onClick={handletoggle} size={"1.5vw"}/>
               <div className='text-red-600 self-start'>{errors.password}</div>
             </div>
             
             <div className='mt-6'>
-              <input onChange={handleChange} type="password" className='w-[25vw] p-2 text-l border-2 border-black rounded' placeholder='Confirm Password' name="confirmPass"/>
+              <input onChange={handleChange} type="password" ref={confirmPass} className='w-[25vw] p-2 text-l border-2 border-black rounded' placeholder='Confirm Password' name="confirmPass"/><BiShow onClick={handleconfirmPass} size={"1.5vw"}/>
               <div className='text-red-600 self-start'>{errors.confirmPass}</div>
             </div>
 
