@@ -1,10 +1,12 @@
 import React  from 'react'
 import Navbar from '../Components/Navbar'
-import {Link} from "react-router-dom"
+import {Link , useNavigate} from "react-router-dom"
 import logo from "../assets/Logo.png"
 
 
 const RegistrationForm = () => {
+
+  const navigate = useNavigate()
 
   let inputValues = {
     name : "",
@@ -75,13 +77,14 @@ const RegistrationForm = () => {
     }
 
     seterros(obj1)
-
-    if (obj1 == {}){
+    
+    // console.log()
+    if (Object.keys(obj1).length == 0){
       navigate("/")
     }
   }
   
-  console.log(errors)
+  // console.log(errors)
 
   return (
     <div>
