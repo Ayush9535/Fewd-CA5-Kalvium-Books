@@ -8,6 +8,7 @@ const Home = () => {
 
   const [data , setData] = React.useState([])
   const [searchVal , setsearchVal] = React.useState("")
+  const [isLoading , setLoading] = React.useState(true)
 
   let fetchData = async() =>{
     try{
@@ -17,8 +18,12 @@ const Home = () => {
       console.log(error)
     }
   }
+
   React.useEffect(()=>{
     fetchData()
+    setTimeout(()=>{
+      setLoading(false)
+    },1000)
   } , [])
   
   let filteredData = data.filter((ele)=>(ele.title.includes(searchVal)))
@@ -26,6 +31,8 @@ const Home = () => {
   return (
     <div>
         <Navbar setsearchVal={setsearchVal} />
+        
+        {isLoading ? ( <div className='w-[48px] h-[48px] border-[5px] border-slate-200 border-b-red-600 rounded-[50%] m-auto mt-10 animate-spin'></div>) : (
         <div className='grid grid-cols-5 w-[80%] m-auto my-20 gap-y-10'>
           {filteredData.map((ele , i)=>{
             return (
@@ -39,7 +46,7 @@ const Home = () => {
               </div>
             )
           })}
-        </div>
+        </div>)}
     </div>
   )
 }
