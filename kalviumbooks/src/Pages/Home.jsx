@@ -21,10 +21,13 @@ const Home = () => {
 
   React.useEffect(()=>{
     fetchData()
+  } , [])
+
+  React.useEffect(()=>{
     setTimeout(()=>{
       setLoading(false)
-    },1000)
-  } , [])
+    },1500)
+  },[])
   
   let filteredData = data.filter((ele)=>(ele.title.includes(searchVal)))
 

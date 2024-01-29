@@ -1,7 +1,7 @@
 import React  from 'react'
 import Navbar from '../Components/Navbar'
 import {Link , useNavigate} from "react-router-dom"
-import logo from "../assets/Logo.png"
+import logo from "../assets/Logo21.png"
 
 
 const RegistrationForm = () => {
@@ -77,23 +77,20 @@ const RegistrationForm = () => {
     }
 
     seterros(obj1)
-    
-    // console.log()
+
     if (Object.keys(obj1).length == 0){
       navigate("/")
     }
   }
   
-  // console.log(errors)
-
   return (
     <div>
         {/* <Navbar/> */}
         <div className='w-full mt-20'>
           <Link to={'/'}>
             <div className="flex justify-center items-center">
-              <img src={logo} className="w-[4.5vw] mr-2"/>
-              <h3 className="text-[3vw] text-gray-600 font-medium">Kalvium Books</h3>
+              <img src={logo} className="w-[4vw] mr-2"/>
+              <h3 className="text-[3.5vw] text-red-600 font-medium">Kalvium Books</h3>
             </div>
           </Link> 
 
