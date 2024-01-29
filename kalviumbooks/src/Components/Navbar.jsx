@@ -9,7 +9,7 @@ const Navbar = ({setsearchVal}) => {
   }
 
   return (
-    <div className="flex justify-between items-center w-[100%] py-5 pl-8 pr-[5vw] mt-2">
+    <div className="flex justify-between items-center w-[100%] py-5 pl-20 pr-[5vw] bg-[#38BDF8]">
       <Link to={'/'}>
       <div className="flex items-center text-center">
         <img src={logo} className="w-[2.8vw] mr-2"/>
@@ -19,12 +19,12 @@ const Navbar = ({setsearchVal}) => {
         </div>
       </div></Link> 
 
-      <div className="flex justify-center items-center shadow-[0_0_5px_1px_gray] h-[7vh] px-5 rounded">
+      <div className="flex justify-center items-center shadow-[0_0_5px_1px_gray] h-[7vh] px-5 rounded bg-white">
         <IoIosSearch className="bg-white text-gray-600" size={"1.5vw"}/>
         <input type="text" className="w-[40vw] px-5 outline-none" placeholder="Search Books" onChange={handleChange}/>
       </div>
 
-      <Link to={"/register"}><button className="py-2 hover:border-2 hover:border-red-600 hover:text-red-600 hover:bg-white px-[4vw] font-bold bg-red-600 text-white">Register</button></Link>
+      <Link to={"/register"}><button className="py-2 border-2 border-red-600 hover:text-red-600 hover:bg-white px-[4vw] font-bold bg-red-600 text-white">Register</button></Link>
     </div>
   )
 }

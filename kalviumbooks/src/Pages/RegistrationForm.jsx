@@ -90,7 +90,7 @@ const RegistrationForm = () => {
           <Link to={'/'}>
             <div className="flex justify-center items-center">
               <img src={logo} className="w-[4vw] mr-2"/>
-              <h3 className="text-[3.5vw] text-red-600 font-medium">Kalvium Books</h3>
+              <h3 className="text-[3.5vw] text-red-600 font-medium relative bottom-1">Kalvium Books</h3>
             </div>
           </Link> 
 

@@ -36,7 +36,7 @@ const Home = () => {
         <Navbar setsearchVal={setsearchVal} />
         
         {isLoading ? ( <div className='w-[48px] h-[48px] border-[5px] border-slate-200 border-b-red-600 rounded-[50%] m-auto mt-10 animate-spin'></div>) : (
-        <div className='grid grid-cols-5 w-[80%] m-auto my-20 gap-y-10'>
+        <div className='grid grid-cols-5 w-[80%] m-auto my-20 gap-y-20'>
           {filteredData.map((ele , i)=>{
             return (
               <div className='m-auto my-0 cursor-pointer' key={i}>
