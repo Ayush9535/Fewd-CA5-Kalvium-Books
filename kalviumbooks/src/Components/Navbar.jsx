@@ -4,12 +4,15 @@ import { IoIosSearch } from "react-icons/io";
 
 const Navbar = ({setsearchVal}) => {
 
+  // updating the state containing the search value 
   let handleChange = (e) =>{
     setsearchVal(e.target.value)
   }
 
   return (
     <div className="flex justify-between items-center w-[100%] py-5 pl-10 pr-[5vw] bg-[#38BDF8] md:pl-15 lg:pl-20">
+
+      {/* logo linked to home page  */}
       <Link to={'/'}>
       <div className="flex items-center text-center">
         <img src={logo} className="w-[45px] mr-2"/>
@@ -19,11 +22,13 @@ const Navbar = ({setsearchVal}) => {
         </div>
       </div></Link> 
 
+      {/* search bar  */}
       <div className="flex justify-center items-center shadow-[0_0_5px_1px_gray] h-[7vh] px-5 rounded bg-white">
         <IoIosSearch className="bg-white text-gray-600" size={"30px"}/>
         <input type="text" className="w-[40vw] px-5 outline-none" placeholder="Search Books" onChange={handleChange}/>
       </div>
 
+      {/* register button linked to form page  */}
       <Link to={"/register"}><button className="py-2 sm:px-[1vw] lg:px-[4vw] border-2 border-red-600 hover:text-red-600 hover:bg-white font-bold bg-red-600 text-white">Register</button></Link>
     </div>
   )
