@@ -1,5 +1,4 @@
 import React  from 'react'
-import Navbar from '../Components/Navbar'
 import {Link , useNavigate} from "react-router-dom"
 import logo from "../assets/Logo21.png"
 import { BiShow } from "react-icons/bi";
@@ -40,7 +39,6 @@ const RegistrationForm = () => {
 
   let handleChange = (e) =>{
     setInputVals((prev) => ({...prev , [e.target.name] : e.target.value}))
-    // console.log(inputVals)
   }
 
   let handleSubmit = (e) =>{
@@ -90,22 +88,28 @@ const RegistrationForm = () => {
     }
 
     seterros(obj1)
-
+    
     if (Object.keys(obj1).length == 0){
       console.log(inputVals)
+      // userData.push(inputVals)
+      localStorage.setItem("userData" , userData)
       showToast()
       setTimeout(() => {
         navigate("/")
       }, 1500);
     }
   }
-
+  let userData = localStorage.getItem("userData")
+  console.log(userData)
+  
   const showToast = () => {
     toast.success('Registration Successfully', {
       position: "top-center",
       autoClose:500
     });
   };
+
+  
   
   return (
     <div>
@@ -153,6 +157,7 @@ const RegistrationForm = () => {
 
           </form>
         </div>
+
         <ToastContainer />
     </div>
   )
