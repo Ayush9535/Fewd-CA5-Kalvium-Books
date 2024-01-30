@@ -3,6 +3,9 @@ import Navbar from '../Components/Navbar'
 import {Link , useNavigate} from "react-router-dom"
 import logo from "../assets/Logo21.png"
 import { BiShow } from "react-icons/bi";
+import {toast  , ToastContainer} from "react-toastify"
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const RegistrationForm = () => {
 
@@ -37,7 +40,7 @@ const RegistrationForm = () => {
 
   let handleChange = (e) =>{
     setInputVals((prev) => ({...prev , [e.target.name] : e.target.value}))
-    console.log(inputVals)
+    // console.log(inputVals)
   }
 
   let handleSubmit = (e) =>{
@@ -89,9 +92,20 @@ const RegistrationForm = () => {
     seterros(obj1)
 
     if (Object.keys(obj1).length == 0){
-      navigate("/")
+      console.log(inputVals)
+      showToast()
+      setTimeout(() => {
+        navigate("/")
+      }, 1500);
     }
   }
+
+  const showToast = () => {
+    toast.success('Registration Successfully', {
+      position: "top-center",
+      autoClose:500
+    });
+  };
   
   return (
     <div>
@@ -118,12 +132,18 @@ const RegistrationForm = () => {
             </div>
             
             <div className='mt-6'>
-              <input onChange={handleChange} type="password" ref={pass} className='w-[25vw] p-2 text-l border-2 border-black rounded' placeholder='Enter Password' name="password"/><BiShow onClick={handletoggle} size={"1.5vw"}/>
+              <div className='flex items-center'>
+              <input onChange={handleChange} type="password" ref={pass} className='w-[23.5vw] p-2 text-l border-y-2 border-l-2 border-black rounded-l outline-none' placeholder='Enter Password' name="password"/>
+              <BiShow onClick={handletoggle} size={"1.5vw"} className='border-y-2 border-black h-[2.8vw] border-r-2 rounded-r '/>
+              </div>
               <div className='text-red-600 self-start'>{errors.password}</div>
             </div>
             
             <div className='mt-6'>
-              <input onChange={handleChange} type="password" ref={confirmPass} className='w-[25vw] p-2 text-l border-2 border-black rounded' placeholder='Confirm Password' name="confirmPass"/><BiShow onClick={handleconfirmPass} size={"1.5vw"}/>
+              <div className='flex items-center'> 
+                <input onChange={handleChange} type="password" ref={confirmPass} className='w-[23.5vw] p-2 text-l border-y-2 border-l-2 border-black rounded-l outline-none' placeholder='Confirm Password' name="confirmPass"/>
+                <BiShow onClick={handleconfirmPass} size={"1.5vw"} className='border-y-2 border-black h-[2.8vw] border-r-2 rounded-r'/>
+              </div>
               <div className='text-red-600 self-start'>{errors.confirmPass}</div>
             </div>
 
@@ -133,7 +153,7 @@ const RegistrationForm = () => {
 
           </form>
         </div>
-
+        <ToastContainer />
     </div>
   )
 }
